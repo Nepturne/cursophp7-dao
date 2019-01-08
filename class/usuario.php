@@ -149,6 +149,25 @@ class Usuario {
 		$this->setDesSenha($senha);
 	}
 
+
+	#-> Atualização de DAdos no banco com DAO.
+	public function update($login,$senha){
+		
+		$this->setDesLogin($login);
+		$this->setDesSenha($senha);
+
+		$sql = new Sql();
+		$sql->query('UPDATE tb_usuarios SET deslogin = :LOGIN , dessenha = :SENHA WHERE id_usuario= :ID',array(
+
+			":LOGIN" => $this->getDesLogin(),
+			":SENHA" => $this->getDesSenha(),
+			":ID" => $this->getIdUsuario()
+
+
+		));
+
+	}
+
 	#-> Executa no momento em que o echo é feito no objeto retornando os gets apos os sets atribuidos pelas métodos com set.
 	#-> No formato índice (nome do campo)=>$this->getValue() = Valor do campo.
 	public function __toString(){

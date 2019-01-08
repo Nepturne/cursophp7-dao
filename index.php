@@ -6,7 +6,7 @@ require_once('config.php');
 # A classe usuario utiliza a classe sql e retorna com as funções sql resultados atribuindo a atributos com set e retornando
 # com o get.
 
-# UTILIZANDO A CLASSE SQL DE FORMA DIRETA SEM CLASSE USUÁRIO PHP (Sql.php SECO)
+# CARREGA E UTILIZA A CLASSE SQL DE FORMA DIRETA SEM CLASSE USUÁRIO.PHP (Sql.php SECO)
 # $sql = new Sql();
 # $usuarios = $sql->select("SELECT * FROM tb_usuarios");
 # echo json_encode($usuarios); 
@@ -31,10 +31,14 @@ require_once('config.php');
 # echo $usuario;
 
 # CARREGA OS DADOS PARA SEREM INSERIDOS NO BANCO DE DADOS:
-$aluno = new Usuario('lucas_insert_two','luzaarwo');
+# $aluno = new Usuario('lucas_insert_two','luzaarwo');
+# $aluno->insert();
+# echo $aluno;
 
-$aluno->insert();
-
-echo $aluno;
+# CARREGA OS DADOS PARA SEREM ALTERADOS NO BANCO DE DADOS:
+# $usuario = new Usuario();
+# $usuario->loadById(7);
+# $usuario->update("FUNCIONOU","LOLmITOU");
+# echo $usuario;
 
 ?>
