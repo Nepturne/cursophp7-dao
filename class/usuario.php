@@ -70,7 +70,7 @@ class Usuario {
 			$this->setDtCadastro(new DateTime($row['dtcadastro']));
 
 		} else{
-			echo 'Nenhum identificador passado como parâmetro para retornar resultados.';
+			throw new Exception("Nenhum identificador passado como parâmetro para retornar resultados.");
 		}
 
 
@@ -118,7 +118,7 @@ class Usuario {
 			$this->setDtCadastro(new DateTime($row['dtcadastro']));
 
 		} else{
-			throw new Exception("Login e/ou Senha inválidos");
+			throw new Exception("Login e/ou Senha inválidos!");
 			
 		}
 

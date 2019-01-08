@@ -26,13 +26,13 @@ require_once('config.php');
 
 # echo json_encode($lista);
 
-# Carrego uma lista de usuários pesquisando pelo login. (SEARCH)
-$afk = new Usuario::search('user');
-echo json_encode($afk);
+# Carrego uma lista de usuários pesquisando pelo login. (SEARCH) NÃO FUNCIONOUUUUU
+# $search = new Usuario::search("us");
+# echo json_encode($search);
 
 # Carrega usuário se o login e senha estiverem corretas como no banco de dados.
-# $usuario = new Usuario();
-# $usuario->login("lucasroot","12345679998");
-# echo $usuario;
+$usuario = new Usuario();
+$usuario->login("lucasroot","12345679998");
+echo $usuario;
 
  ?>
