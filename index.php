@@ -2,37 +2,39 @@
 #-> DAO - Data Acess Objetct:
 require_once('config.php');
 
-# A classe sql que trata conexões e formas de Select, Update, Delete de dados vai ser consumida pelas classes que a utilizam.
+# A classe Sql que trata conexões e formas de Select, Update, Delete de dados vai ser consumida pelas classes que a utilizam.
 # A classe usuario utiliza a classe sql e retorna com as funções sql resultados atribuindo a atributos com set e retornando
 # com o get.
 
-/* UTILIZANDO A CLASSE SQL DE FORMA DIRETA E NãO INDIRETA COMO POR EXEMPLO PELA CLASSE USUARIO.PHP (SQL SECO)
+# UTILIZANDO A CLASSE SQL DE FORMA DIRETA SEM CLASSE USUÁRIO PHP (Sql.php SECO)
 # $sql = new Sql();
-
 # $usuarios = $sql->select("SELECT * FROM tb_usuarios");
+# echo json_encode($usuarios); 
 
-# echo json_encode($usuarios); */
-
-# Carrega um usuário com base em seu Id passado como parâmetro setando suas informações no banco nas row com os sets e 
-# recuperando-as com os gets; (CARREGA PELO ID)
+# CARREGA UM USUÁRIO COM BASE EM SEU ID PASSADO COMO PARÂMETRO SETANDO SUAS 
+# INFORMAÇÕES NO BANCO NAS ROW COM OS SETS E RECUPERANDO-AS COM OS GETS;
 # $root = new Usuario();
-
 # $root->loadById(1);
-
 # echo $root;
 
-# Carrega uma lista de usuários com o método stático getList(); (LISTA ESTÁTICA)
+# CARREGA UMA LISTA DE USUÁRIOS COM O MÉTODO STÁTICO GETLIST(); (LISTA ESTÁTICA)
 # $lista = Usuario::getList();
-
 # echo json_encode($lista);
 
-# Carrego uma lista de usuários pesquisando pelo login. (SEARCH) NÃO FUNCIONOUUUUU
+# CARREGA UMA LISTA DE USUÁRIOS PESQUISANDO PELO LOGIN. (SEARCH) =========> NÃO FUNCIONOUUUUU <===========
 # $search = new Usuario::search("us");
-# echo json_encode($search);
+# echo json_encode($search); ( VERIFICAR RESPOSTA NA UDEMY ) =========> NÃO FUNCIONOUUUUU <===========
 
-# Carrega usuário se o login e senha estiverem corretas como no banco de dados.
-$usuario = new Usuario();
-$usuario->login("lucasroot","12345679998");
-echo $usuario;
+# CARREGA USUÁRIO SE O LOGIN E A SENHA ESTIVEREM CORRETAS COMO NO BANCO DE DADOS.
+# $usuario = new Usuario();
+# $usuario->login("lucasroot","12345679998");
+# echo $usuario;
 
- ?>
+# CARREGA OS DADOS PARA SEREM INSERIDOS NO BANCO DE DADOS:
+$aluno = new Usuario('lucas_insert_two','luzaarwo');
+
+$aluno->insert();
+
+echo $aluno;
+
+?>
