@@ -72,7 +72,7 @@ class Usuario {
 
 	}
 
-	#-> Retorna todos os usuários listados pelo login salvo no banco como (deslogin).
+	#-> Retorna todos os usuários listados pelo login salvo no banco como (deslogin). -------------------------------------
 	#-> Método Statico não precisa de instancia em objeto somente nomeDaClasse::função();
 	public static function getList(){
 
@@ -116,7 +116,7 @@ class Usuario {
 
 	}
 
-	#-> Efetua os sets em cada função.
+	#-> Efetua os sets em cada função. -----------------------------------------------------------------------------------
 	public function setData($data){
 
 		$this->setIdUsuario($data['idusuario']);
@@ -126,7 +126,7 @@ class Usuario {
 
 	}
 
-	#-> Inserção de Dados no banco com DAO.
+	#-> Inserção de Dados no banco com DAO. ------------------------------------------------------------------------------
 	public function insert(){
 		$sql = new Sql();
 
@@ -150,7 +150,7 @@ class Usuario {
 	}
 
 
-	#-> Atualização de DAdos no banco com DAO.
+	#-> Atualização de DAdos no banco com DAO.--------------------------------------------------------------------------
 	public function update($login,$senha){
 		
 		$this->setDesLogin($login);
@@ -161,10 +161,24 @@ class Usuario {
 
 			":LOGIN" => $this->getDesLogin(),
 			":SENHA" => $this->getDesSenha(),
-			":ID" => $this->getIdUsuario()
+			":ID"    => $this->getIdUsuario()
 
 
 		));
+
+	}
+
+	#-> Deleção de Dados no banco com DAO. ------------------------------------------------------------------------------
+	public function delete(){
+		$sql = new Sql();
+		$sql->query('DELETE FROM tb_usuarios WHERE idusuario = :ID',array(
+			":ID" => $this->getIdUsuario()
+			));
+
+		$this->setIdUsuario(0);
+		$this->setDesLogin("");
+		$this->setDesSenha("");
+		$this->setDtCadastro(new DateTime());
 
 	}
 
@@ -182,9 +196,6 @@ class Usuario {
 	}
 
 	
-} //-> FIM DA CLASSE
+} //-> FIM DA CLASSE -----------------------------------------------------------------------------------------------------
 
-
-
-
- ?>
+?>

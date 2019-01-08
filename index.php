@@ -41,4 +41,9 @@ require_once('config.php');
 # $usuario->update("FUNCIONOU","LOLmITOU");
 # echo $usuario;
 
+# CARREGA OS DADOS PARA SEREM DELETADOS NO BANCO DE DADOS:
+$usuario = new Usuario();
+$usuario->loadById(7);
+$usuario->delete();
+echo $usuario;
 ?>
